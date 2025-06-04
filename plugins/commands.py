@@ -17,13 +17,13 @@ async def start_message(c,m):
         await db.add_user(m.from_user.id, m.from_user.first_name)
         await c.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
     await m.reply_photo(f"https://te.legra.ph/file/119729ea3cdce4fefb6a1.jpg",
-        caption=f"<b>Hello {m.from_user.mention} 👋\n\nI Am Join Request Acceptor Bot. I Can Accept All Old Pending Join Request.\n\nFor All Pending Join Request Use - /accept</b>",
+        caption=f"<b>Hello {m.from_user.mention} 👋\n\nI Am Join Request Acceptor Bot. I Can Accept Both New requests and Old Pending Join Request.\n\nFor All Pending Join Request Use - /accept</b>",
         reply_markup=InlineKeyboardMarkup(
             [[
-                InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
+                InlineKeyboardButton('💝 New OTT requesting Group', url='https://t.me/+6PInGmv0PoQwZDFk')
             ],[
-                InlineKeyboardButton("❣️ ᴅᴇᴠᴇʟᴏᴘᴇʀ", url='https://t.me/Kingvj01'),
-                InlineKeyboardButton("🤖 ᴜᴘᴅᴀᴛᴇ", url='https://t.me/VJ_Botz')
+                InlineKeyboardButton("❣️ ᴅᴇᴠᴇʟᴏᴘᴇʀ", url='https://t.me/iam_fraz_bot'),
+                InlineKeyboardButton("🤖 ᴜᴘᴅᴀᴛᴇ", url='https://t.me/Cyber_Fcracker')
             ]]
         )
     )
@@ -51,7 +51,7 @@ async def accept(client, message):
     else:
         return await message.reply("**Message Not Forwarded From Channel Or Group.**")
     await vj.delete()
-    msg = await show.edit("**Accepting all join requests... Please wait until it's completed.**")
+    msg = await show.edit("**Accepting all join requests... Please wait until it's completed 🔸@Cyber_Fcracker.**")
     try:
         while True:
             await acc.approve_all_chat_join_requests(chat_id)
@@ -59,7 +59,7 @@ async def accept(client, message):
             join_requests = [request async for request in acc.get_chat_join_requests(chat_id)]
             if not join_requests:
                 break
-        await msg.edit("**Successfully accepted all join requests.**")
+        await msg.edit("**Successfully accepted all join requests 🔸 @Cyber_Fcracker.**")
     except Exception as e:
         await msg.edit(f"**An error occurred:** {str(e)}")
         
@@ -73,7 +73,7 @@ async def approve_new(client, m):
             await client.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
         await client.approve_chat_join_request(m.chat.id, m.from_user.id)
         try:
-            await client.send_message(m.from_user.id, "**Hello {}!\nWelcome To {}\n\n__Powered By : @VJ_Botz __**".format(m.from_user.mention, m.chat.title))
+            await client.send_message(m.from_user.id, "**Hello {}!\nWelcome To {}\n\n__Powered By : @Cyber_Fcracker __**".format(m.from_user.mention, m.chat.title))
         except:
             pass
     except Exception as e:
